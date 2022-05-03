@@ -1,5 +1,19 @@
-Laravel Mysql Force Master Package
+# Laravel Mysql Force Master Package
 ---
+
+# RDS MySQL读写分离如何确保数据读取的时效性 
+
+>阿里云内部网络会确保同步日志在主实例和只读实例间的实时传输，正常情况下只读实例不会有延迟产生。但受限于MySQL本身的复制机制，若同步日志的应用时间较久，会产生数据同步的延迟，这个是MySQL尚无法在技术手段上规避的问题。为减小延迟，建议您的只读实例规格不小于主实例，从而确保有足够高的性能来应用同步日志。
+RDS支持用户设置延迟阈值，当某个只读实例的延迟超过该阈值时，系统会不再转发任何请求至该实例。当所有只读实例均超过延迟阈值时，请求直接路由到主库，不管主库的读权重是否开启。
+在使用读写分离过程中，若您需要某些查询语句获取实时性的数据，可通过Hint格式将这些查询语句强制转发至主实例执行。RDS读写分离支持的Hint格式为`/*FORCE_MASTER*/`，指定后续SQL到主实例执行。示例如下：
+
+```sql
+/*FORCE_MASTER*/ SELECT * FROM table_name;
+```
+
+https://help.aliyun.com/document_detail/52221.html
+
+https://learnku.com/laravel/t/66526?#reply222886
 
 ## Installing
 
