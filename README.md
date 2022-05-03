@@ -11,6 +11,7 @@ RDS支持用户设置延迟阈值，当某个只读实例的延迟超过该阈�
 /*FORCE_MASTER*/ SELECT * FROM table_name;
 ```
 
+相关链接：
 https://help.aliyun.com/document_detail/52221.html
 
 https://learnku.com/laravel/t/66526?#reply222886
@@ -23,7 +24,7 @@ composer require jiangslee/laravel-mysql-forcemaster -vvv
 
 ## Usage
 
-## 使用->forceMaster()手动增加/*FORCE_MASTER*/
+## 使用`->forceMaster()`手动增加`/*FORCE_MASTER*/`
 ```php
 $sql = DB::table('users')->select('*')->forceMaster()->toSql();
 // /*FORCE_MASTER*/SELECT * FROM `users`
@@ -33,7 +34,7 @@ $sql = DB::table('users')->select('*')->toSql();
 // SELECT * FROM `users`
 ```
 
-## 在事务中自动增加/*FORCE_MASTER*/
+## 在事务中自动增加`/*FORCE_MASTER*/`
 ```php
 DB::beginTransaction();
 $users = User::first();
