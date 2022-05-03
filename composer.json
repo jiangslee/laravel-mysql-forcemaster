@@ -1,11 +1,11 @@
 {
-    "name": "overtrue/laravel-package",
-    "description": "Laravel package template",
+    "name": "jiangslee/laravel-mysql-forcemaster",
+    "description": "Laravel forcemaster hint for mysql",
     "license": "MIT",
     "authors": [
         {
-            "name": "overtrue",
-            "email": "anzhengchao@gmail.com"
+            "name": "jiangslee",
+            "email": "jiangslee@qq.com"
         }
     ],
     "require": {
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Overtrue\\LaravelPackage\\": "src"
+            "Jiangslee\\LaravelMySqlForceMasterPackage\\": "src"
         }
     },
     "autoload-dev": {
@@ -28,12 +28,13 @@
         "orchestra/testbench": "^7.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "vimeo/psalm": "^4.10",
-        "jetbrains/phpstorm-attributes": "^1.0"
+        "jetbrains/phpstorm-attributes": "^1.0",
+        "brainmaestro/composer-git-hooks": "dev-prepare-for-symfony-6"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "\\Overtrue\\LaravelPackage\\PackageServiceProvider"
+                "\\Jiangslee\\LaravelMySqlForceMasterPackage\\PackageServiceProvider"
             ]
         },
         "hooks": {
@@ -76,5 +77,13 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/Jubeki/composer-git-hooks"
+        }
+    ]
 }
